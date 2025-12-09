@@ -335,3 +335,69 @@ function add_xdefault_hreflang() {
         echo '<link rel="alternate" hreflang="x-default" href="' . esc_url( $default_url ) . '" />' . "\n";
     }
 }
+
+require_once get_template_directory() . '/inc/class-tgm-plugin-activation.php';
+
+add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
+function my_theme_register_required_plugins() {
+
+    $plugins = array(
+
+        array(
+            'name'     => 'SVG Support',
+            'slug'     => 'svg-support',
+            'required' => true,
+        ),
+
+        array(
+            'name'               => 'Advanced Custom Fields (ACF)',
+            'slug'               => 'advanced-custom-fields',
+            'source'             => get_template_directory() . '/plugins/advanced-custom-fields-pro.zip', 
+            'required'           => true,
+            'force_activation'   => false,
+            'force_deactivation' => false,
+        ),
+
+        array(
+            'name'     => 'Antispam Bee',
+            'slug'     => 'antispam-bee',
+            'required' => false,
+        ),
+
+        array(
+            'name'     => 'Redirection',
+            'slug'     => 'redirection',
+            'required' => false,
+        ),
+
+        array(
+            'name'     => 'Super Page Cache for Cloudflare',
+            'slug'     => 'wp-cloudflare-page-cache',
+            'required' => false,
+        ),
+
+        array(
+            'name'     => 'Yoast Duplicate Post',
+            'slug'     => 'duplicate-post',
+            'required' => false,
+        ),
+
+        array(
+            'name'     => 'Yoast SEO',
+            'slug'     => 'wordpress-seo',
+            'required' => false,
+        ),
+    );
+
+    $config = array(
+        'id'           => 'casinos-theme',
+        'default_path' => '',         
+        'menu'         => 'tgmpa-install-plugins',
+        'parent_slug'  => 'themes.php',
+        'capability'   => 'edit_theme_options',
+        'has_notices'  => true,
+        'dismissable'  => true,
+    );
+
+    tgmpa( $plugins, $config );
+}
