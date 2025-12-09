@@ -1,0 +1,25 @@
+.is-root-container > div{
+    margin-left: inherit;
+    margin-right: inherit;
+    max-width: 100%;
+    padding: 0 10px;
+}
+
+.acf-button{
+    background-color: #B9C7FF;
+    color: #000;
+}
+
+.wp-block-paragraph,
+.wp-block-list{
+    padding-bottom: 20px;
+}
+
+.wp-block-comment-template li>.block-editor-block-list__block,
+.wp-block-comment-template li .block-editor-block-list__block{
+    margin-left: 0;
+}
+
+.wp-block-comments .wp-block-post-comments-form{
+    margin-left: 0;
+}
